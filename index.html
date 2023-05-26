@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="Logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Random Word Generator</title>
+  </head>
+  <body>
+    <!-- Absolute -->
+    <div class="navbar">
+      <button class="btn" id="auto-search-nav-btn" onclick="diplayAutoSearch()">Auto Search</button>
+      <button class="btn" id="history-nav-btn" onclick="diplayHistory()">History</button>
+    </div>
+    <div id="history"></div>
+    <div id="auto-search">
+      <label for="num-of-searches">Number of Searches:<input id="num-of-searches" type="number" max="10" min="2" /></label>
+      <button class="btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
+    </div>
+    <button class="btn" id="close-btn" onclick="closeSection()">Close</button>
+
+    <!-- Static -->
+    <h1 id="word">_-_-_-_-_</h1>
+    <div class="content">
+      <button class="btn" onclick="getWord()">Get New Word</button>
+      <button class="btn" id="search" onclick="search()">🔎</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
