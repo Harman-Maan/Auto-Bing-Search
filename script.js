@@ -23,14 +23,14 @@ function getWord() {
   fetch(`https://random-word-api.herokuapp.com/word`)
     .then((result) => result.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data); // Log the response to console
       displayWord(data[0]);
-      //   search();
     })
     .catch((err) => console.log("not found", err));
 }
 getWord();
 
+// This is to make history and auto search buttons in navbar work. Also, for the close button that appears when any of these buttons are clicked.
 function diplayHistory() {
   mappedHistory = history.map((word) => `<li>${word}</li>`);
 
@@ -73,7 +73,9 @@ let tabsCount = 0;
 let setTabMaker;
 
 function autoSearch() {
-  setTabMaker = setInterval(createTabs, 5000);
+  const searchInterval = document.getElementById("search-interval").value * 1000;
+
+  setTabMaker = setInterval(createTabs, searchInterval);
 }
 
 function createTabs() {
@@ -83,7 +85,10 @@ function createTabs() {
 
   tabsCount++;
 
-  const numOfTabs = document.getElementById("num-of-searches").value;
+  let numOfTabs = document.getElementById("num-of-searches").value;
+  if (numOfTabs > 10) numOfTabs = 10;
+  else if (numOfTabs < 2) numOfTabs = 2;
+
   if (tabsCount >= numOfTabs) {
     clearInterval(setTabMaker);
     tabsCount = 0;

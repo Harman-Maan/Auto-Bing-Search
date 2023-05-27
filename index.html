@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/Logo.png" />
     <link rel="stylesheet" href="style.css" />
     <title>Random Word Generator</title>
   </head>
@@ -15,7 +16,17 @@
     </div>
     <div id="history"></div>
     <div id="auto-search">
+      <label for="search-interval"
+        >Time interval between each search:
+        <select name="time" id="search-interval">
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+        </select>
+        seconds
+      </label>
       <label for="num-of-searches">Number of Searches:<input id="num-of-searches" type="number" max="10" min="2" /></label>
+
       <button class="btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
     </div>
     <button class="btn" id="close-btn" onclick="closeSection()">Close</button>
