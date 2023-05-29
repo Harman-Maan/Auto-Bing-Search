@@ -38,6 +38,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   background-color: #e02605;
   z-index: 0;
@@ -73,8 +74,12 @@ body {
 }
 
 #history {
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: start;
+}
+
+#history ol {
+  list-style-position: inside;
 }
 
 #auto-search {
@@ -102,6 +107,11 @@ body {
 #auto-search input:focus,
 #search-interval:focus {
   outline: none;
+}
+
+#auto-search-btn {
+  background-color: #0a950a;
+  color: #fff;
 }
 
 #word {
