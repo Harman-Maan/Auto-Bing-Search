@@ -85,12 +85,30 @@ function createTabs() {
 
   tabsCount++;
 
-  let numOfTabs = document.getElementById("num-of-searches").value;
-  if (numOfTabs > 10) numOfTabs = 10;
-  else if (numOfTabs < 2) numOfTabs = 2;
+  let numOfSearches = document.getElementById("num-of-searches").value;
 
-  if (tabsCount >= numOfTabs) {
+  if (numOfSearches > 30) numOfSearches = 30;
+  else if (numOfSearches < 2) numOfSearches = 2;
+
+  if (tabsCount >= numOfSearches) {
     clearInterval(setTabMaker);
     tabsCount = 0;
   }
 }
+
+const totalPoints = document.getElementById("total-points");
+const numOfTabs = document.getElementById("num-of-tabs");
+const estimatedTime = document.getElementById("estimated-time");
+
+function calculatePoints() {
+  let tabs = document.getElementById("num-of-searches").value;
+  let searchInterval = document.getElementById("search-interval").value;
+
+  if (tabs > 30) tabs = 30;
+  else if (tabs < 2) tabs = 2;
+
+  totalPoints.textContent = tabs * 3;
+  numOfTabs.textContent = tabs;
+  estimatedTime.textContent = tabs * searchInterval;
+}
+calculatePoints();

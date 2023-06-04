@@ -16,16 +16,22 @@
     </div>
     <div id="history"></div>
     <div id="auto-search">
-      <label for="search-interval"
-        >Time interval between each search:
-        <select name="time" id="search-interval">
+      <fieldset>
+        <legend>Time interval between each search:</legend>
+        <select name="time" id="search-interval" onchange="calculatePoints()">
           <option value="4">4</option>
-          <option value="6">6</option>
+          <option value="6" selected>6</option>
           <option value="8">8</option>
         </select>
-        seconds
-      </label>
-      <label for="num-of-searches">Number of Searches:<input id="num-of-searches" type="number" max="10" min="2" /></label>
+        sec x <span id="num-of-tabs" class="changing-values">5</span> = <span id="estimated-time" class="changing-values">30</span> sec
+      </fieldset>
+
+      <fieldset>
+        <legend>Number of Searches:</legend>
+        <label for="num-of-searches">
+          <input id="num-of-searches" type="number" max="30" min="2" value="20" onkeyup="calculatePoints()" /> x 3 = <span id="total-points" class="changing-values"></span> points
+        </label>
+      </fieldset>
 
       <button class="btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
     </div>
@@ -37,7 +43,6 @@
       <button class="btn" onclick="getWord()">Get New Word</button>
       <button class="btn" id="search" onclick="search()">🔎</button>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>

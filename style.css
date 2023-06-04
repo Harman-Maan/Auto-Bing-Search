@@ -82,6 +82,16 @@ body {
   list-style-position: inside;
 }
 
+fieldset {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+}
+
+legend {
+  margin-right: 3rem;
+  padding: 0.2rem;
+}
+
 #auto-search {
   justify-content: center;
   align-items: start;
@@ -112,6 +122,10 @@ body {
 #auto-search-btn {
   background-color: #0a950a;
   color: #fff;
+}
+
+.changing-values {
+  color: #adff81;
 }
 
 #word {
