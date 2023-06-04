@@ -32,7 +32,7 @@ Once you click on it, you will see:
  3. Then click start and sit back as the new tabs are being created. (Don't click the button again and again)
 
 *Generating a lot  of tabs at once may result in browser not responding, system slowing down, or some other issue.
-Thus, I have set the maximum limit to 10 tabs at a time. After all the 10 tabs are created close them and repeat the steps again.*
+Thus, I have set the maximum limit to 30 tabs at a time. After all the 30 tabs are created close them and repeat the steps again.*
  
 ## History
 "History" is second option in navbar, which simply contains the list of words which have been received from API.
