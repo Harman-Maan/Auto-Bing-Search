@@ -9,6 +9,10 @@ I couldn't complete 50 searches to earn Microsoft rewards points every day. So, 
 
 (On mobile, use Edge browser not Bing App for best results.)
 
+## Main interface
+
+When you land on page you will have a random word. Below it a button to get new random word, beside it is a search button which will open a new tab to search that word on Bing.
+
 ## Auto Search
 
 ### Let's first understand how it works.
@@ -36,8 +40,3 @@ Thus, I have set the maximum limit to 30 tabs at a time. After all the 30 tabs a
  
 ## History
 "History" is second option in navbar, which simply contains the list of words which have been received from API.
-
-## Main interface
-I know it is weird putting this in last, but I think this is not that important and the interface is pretty self-explainatory. 
-
-When you land on page you will have a random word. Below it a button to get new random word, beside it is a search button which will open a new tab to search that word on Bing.
