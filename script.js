@@ -34,11 +34,7 @@ getWord();
 function diplayHistory() {
   mappedHistory = history.map((word) => `<li>${word}</li>`);
 
-  if (history) {
-    historyContainer.innerHTML = `<ol>${mappedHistory.join(" ")}</ol>`;
-  } else {
-    historyContainer.textContent = "Empty";
-  }
+  historyContainer.innerHTML = `<ol>${mappedHistory.join(" ")}</ol>`;
 
   if (historyBtn.textContent == "History") {
     historyContainer.style.display = "flex";
