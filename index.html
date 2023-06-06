@@ -9,32 +9,44 @@
     <title>Random Word Generator</title>
   </head>
   <body>
-    <!-- Absolute -->
+    <!-- Navbar -->
     <div class="navbar">
       <button type="button" class="btn" id="auto-search-nav-btn" onclick="diplayAutoSearch()">Auto Search</button>
       <button type="button" class="btn" id="history-nav-btn" onclick="diplayHistory()">History</button>
     </div>
+    
+     <!--   History   -->
     <div id="history"></div>
+    
+    <!--   Auto Search   -->
     <div id="auto-search">
-      <fieldset>
-        <legend>Time interval between each search:</legend>
-        <select name="time" id="search-interval" onchange="calculatePoints()">
-          <option value="4">4</option>
-          <option value="6" selected>6</option>
-          <option value="8">8</option>
-        </select>
-        sec x <span id="num-of-tabs" class="changing-values">5</span> = <span id="estimated-time" class="changing-values">30 sec</span>
-      </fieldset>
+      <form id="auto-search-form">
+        <fieldset>
+          <legend>Time interval between each search:</legend>
+          <select name="time" id="search-interval" onchange="calculatePoints()">
+            <option value="4">4</option>
+            <option value="6" selected>6</option>
+            <option value="8">8</option>
+          </select>
+          sec x <span id="num-of-tabs" class="changing-values">5</span> = <span id="estimated-time" class="changing-values">30 sec</span>
+        </fieldset>
 
-      <fieldset>
-        <legend>Number of Searches:</legend>
-        <label for="num-of-searches">
-          <input id="num-of-searches" type="number" max="30" min="2" value="20" onkeyup="calculatePoints()" onchange="calculatePoints()" /> x 3 =
-          <span id="total-points" class="changing-values"></span> points
-        </label>
-      </fieldset>
-
-      <button type="button" class="btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
+        <fieldset>
+          <legend>Number of Searches:</legend>
+          <label for="num-of-searches">
+            <input id="num-of-searches" type="number" max="30" min="2" value="20" onkeyup="calculatePoints()" onchange="calculatePoints()" /> x 3 =
+            <span id="total-points" class="changing-values"></span> points
+          </label>
+        </fieldset>
+        <button type="button" class="btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
+      </form>
+      <div id="processing-tabs">
+        <h3>Generating Tabs</h3>
+        <p>Tabs Created: <span class="changing-values" id="tabs-created">_-_</span></p>
+        <p>Tabs Left: <span class="changing-values" id="tabs-left">_-_</span></p>
+        <p>Estimated Time Left: <span class="changing-values" id="estimated-time-left">_-_</span> sec</p>
+        <button type="button" class="btn" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
+      </div>
     </div>
     <button type="button" class="btn" id="close-btn" onclick="closeSection()">Close</button>
 
