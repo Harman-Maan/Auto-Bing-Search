@@ -1,8 +1,13 @@
 const boxContainer = document.getElementById("word");
+
 const historyContainer = document.getElementById("history");
 const historyBtn = document.getElementById("history-nav-btn");
+
 const autoSearchContainer = document.getElementById("auto-search");
 const autoSearchBtn = document.getElementById("auto-search-nav-btn");
+const autoSearchForm = document.getElementById("auto-search-form");
+const processingTabs = document.getElementById("processing-tabs");
+
 const closeBtn = document.getElementById("close-btn");
 
 let history = [];
@@ -36,21 +41,13 @@ function diplayHistory() {
 
   historyContainer.innerHTML = `<ol>${mappedHistory.join(" ")}</ol>`;
 
-  if (historyBtn.textContent == "History") {
-    historyContainer.style.display = "flex";
-  } else {
-    historyBtn.textContent = "History";
-  }
+  historyContainer.style.display = "flex";
+
   closeSection();
 }
 
 function diplayAutoSearch() {
-  if (autoSearchBtn.textContent == "Auto Search") {
-    autoSearchContainer.style.display = "flex";
-  } else {
-    autoSearchContainer.style.display = "none";
-    autoSearchBtn.textContent = "Auto Search";
-  }
+  autoSearchContainer.style.display = "flex";
   closeSection();
 }
 
@@ -64,15 +61,32 @@ function closeSection() {
   }
 }
 
+//handling the submit of auto-search form
+function diplayProcessingTabs() {
+  autoSearchForm.style.display = "none";
+  processingTabs.style.display = "flex";
+}
+
+function hideProcessingTabs() {
+  autoSearchForm.style.display = "flex";
+  processingTabs.style.display = "none";
+}
+
 // Auto Search Section Code
 let tabsCount = 0;
 let setTabMaker;
+const searchInterval = document.getElementById("search-interval").value;
 
 function autoSearch() {
-  const searchInterval = document.getElementById("search-interval").value * 1000;
-
-  setTabMaker = setInterval(createTabs, searchInterval);
+  diplayProcessingTabs();
+  setTabMaker = setInterval(createTabs, searchInterval * 1000);
+  // createTabs(); // So the the funtion is executed immediately, instead of waiting for setInterval
 }
+
+// These are called so the content in processing-tabs can be updated as the tabs are generated
+const tabsCreated = document.getElementById("tabs-created");
+const tabsLeft = document.getElementById("tabs-left");
+const estimatedTimeLeft = document.getElementById("estimated-time-left");
 
 function createTabs() {
   url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
@@ -86,19 +100,34 @@ function createTabs() {
   if (numOfSearches > 30) numOfSearches = 30;
   else if (numOfSearches < 2) numOfSearches = 2;
 
+  // calculation for numbers that will be displayed in processing-tabs
+  tabsCreated.textContent = tabsCount;
+  tabsLeft.textContent = numOfSearches - tabsCount;
+  estimatedTimeLeft.textContent = (numOfSearches - tabsCount) * searchInterval;
+
   if (tabsCount >= numOfSearches) {
-    clearInterval(setTabMaker);
-    tabsCount = 0;
+    stopAutoSearch();
   }
 }
 
+function stopAutoSearch() {
+  clearInterval(setTabMaker);
+  tabsCount = 0;
+  hideProcessingTabs();
+
+  // Reseting the values
+  tabsCreated.textContent = "_-_";
+  tabsLeft.textContent = "_-_";
+  estimatedTimeLeft.textContent = "_-_";
+}
+
+// Here we calculate the estimated time and the points inside auto-search
 const totalPoints = document.getElementById("total-points");
 const numOfTabs = document.getElementById("num-of-tabs");
 const estimatedTime = document.getElementById("estimated-time");
 
 function calculatePoints() {
   let tabs = document.getElementById("num-of-searches").value;
-  let searchInterval = document.getElementById("search-interval").value;
 
   if (tabs > 30) tabs = 30;
   else if (tabs < 2) tabs = 2;
