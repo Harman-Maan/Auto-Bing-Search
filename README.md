@@ -1,6 +1,6 @@
 # Random-Word-Search
 
-Visit the site [here](https://harman-maan42.github.io/Random-Word/).
+Visit the site [here](https://harman-maan.github.io/Random-Word/).
 
 I am using [Random word API](https://random-word-api.herokuapp.com/home) for the project because it is fast and simple.
 <hr width="50%">
