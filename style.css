@@ -90,12 +90,19 @@ body {
 #auto-search {
   justify-content: center;
   align-items: start;
+}
+
+#auto-search-form {
+  display: flex;
+  align-items: start;
   gap: 1rem;
+  flex-direction: column;
 }
 
 fieldset {
   padding: 0.5rem 0.75rem;
   border-radius: 10px;
+  width: 100%;
 }
 
 legend {
@@ -124,9 +131,12 @@ legend {
   outline: none;
 }
 
+#auto-search .btn {
+  color: #fff;
+}
+
 #auto-search-btn {
   background-color: #0a950a;
-  color: #fff;
 }
 
 .changing-values {
@@ -137,6 +147,19 @@ legend {
   background-color: steelblue;
   cursor: pointer;
 }
+
+/* Processing Tabs */
+#processing-tabs {
+  display: none;
+  align-items: start;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#stop-auto-search {
+  background-color: #ff1500;
+}
+/* Making the Site Responsive */
 
 @media (max-width: 540px) {
   fieldset {
@@ -153,7 +176,9 @@ legend {
   fieldset {
     font-size: 1rem;
   }
-
+  #history {
+    font-size: 1rem;
+  }
   #word {
     font-size: 2.5rem;
   }
@@ -168,8 +193,5 @@ legend {
   }
   .btn {
     font-size: 0.9rem;
-  }
-  #history {
-    font-size: 1rem;
   }
 }
