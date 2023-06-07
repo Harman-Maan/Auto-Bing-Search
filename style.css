@@ -176,7 +176,8 @@ legend {
   fieldset {
     font-size: 1rem;
   }
-  #history {
+  #history,
+  #processing-tabs{
     font-size: 1rem;
   }
   #word {
