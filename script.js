@@ -18,11 +18,6 @@ function displayWord(word) {
   boxContainer.textContent = word;
 }
 
-function search() {
-  url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
-  window.open(url, "_blank");
-}
-
 function getWord() {
   // Making Https request (Documentation for API: https://random-word-api.herokuapp.com/home)
   fetch(`https://random-word-api.herokuapp.com/word`)
@@ -75,12 +70,19 @@ function hideProcessingTabs() {
 // Auto Search Section Code
 let tabsCount = 0;
 let setTabMaker;
-const searchInterval = document.getElementById("search-interval").value;
+let searchInterval = document.getElementById("search-interval").value;
 
 function autoSearch() {
+  searchInterval = document.getElementById("search-interval").value;
   diplayProcessingTabs();
   setTabMaker = setInterval(createTabs, searchInterval * 1000);
   // createTabs(); // So the the funtion is executed immediately, instead of waiting for setInterval
+}
+
+function search() {
+  url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
+  // window.open(url, "_blank");
+  console.log(url);
 }
 
 // These are called so the content in processing-tabs can be updated as the tabs are generated
@@ -89,13 +91,13 @@ const tabsLeft = document.getElementById("tabs-left");
 const estimatedTimeLeft = document.getElementById("estimated-time-left");
 
 function createTabs() {
-  url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
-  window.open(url, "_blank");
+  search();
   getWord();
 
   tabsCount++;
 
   let numOfSearches = document.getElementById("num-of-searches").value;
+  searchInterval = document.getElementById("search-interval").value;
 
   if (numOfSearches > 30) numOfSearches = 30;
   else if (numOfSearches < 2) numOfSearches = 2;
@@ -128,6 +130,7 @@ const estimatedTime = document.getElementById("estimated-time");
 
 function calculatePoints() {
   let tabs = document.getElementById("num-of-searches").value;
+  searchInterval = document.getElementById("search-interval").value;
 
   if (tabs > 30) tabs = 30;
   else if (tabs < 2) tabs = 2;
