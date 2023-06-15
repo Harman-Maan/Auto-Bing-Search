@@ -87,8 +87,8 @@ function autoSearch() {
 
 function search() {
   url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
-  // window.open(url, "_blank");
-  console.log(url);
+  window.open(url, "_blank");
+  // console.log(url);
 }
 
 // These are called so the content in processing-tabs can be updated as the tabs are generated
