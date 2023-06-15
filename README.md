@@ -1,6 +1,6 @@
 # Random-Word-Search
 
-Visit the site [here](https://harman-maan.github.io/Random-Word/).
+Visit the site [here](https://harman-maan.github.io/Auto-Bing-Search/).
 
 I am using [Random word API](https://random-word-api.herokuapp.com/home) for the project because it is fast and simple.
 
