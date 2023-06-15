@@ -33,6 +33,16 @@ body {
   font-size: 3rem;
 }
 
+.btn-icon {
+  border: none;
+  font-size: 1.3rem;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  padding: 0 0.15rem;
+}
+
 /* ---- NavBar ----- */
 
 .navbar {
@@ -50,8 +60,14 @@ body {
   z-index: 0;
 }
 
-.navbar .btn,
-#close-btn {
+.navbar hr {
+  margin-left: auto;
+  rotate: 90deg;
+  width: 1.4rem;
+  border: 1px solid #fff;
+}
+
+.navbar .btn {
   background-color: #fff;
   color: #000;
 }
@@ -62,6 +78,7 @@ body {
   right: 1%;
   display: none;
   z-index: 2;
+  font-size: 2rem;
 }
 
 /* ---- Setting basic styles ----- */
@@ -199,14 +216,20 @@ legend {
     padding: 0.2rem;
   }
 }
+@media (max-width: 390px) {
+  fieldset {
+    font-size: 0.9rem;
+  }
+  legend {
+    font-size: 0.8rem;
+  }
+}
 
 @media (max-width: 410px) {
-  fieldset {
-    font-size: 1rem;
-  }
   #history,
   #processing-tabs,
-  #play-video {
+  #play-video,
+  fieldset {
     font-size: 1rem;
   }
   #word {

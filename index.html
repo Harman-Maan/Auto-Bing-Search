@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/Logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Random Word Generator</title>
   </head>
@@ -13,7 +20,11 @@
     <div class="navbar">
       <button type="button" class="btn" onclick="displayAutoSearch()">Auto Search</button>
       <button type="button" class="btn" onclick="displayHistory()">History</button>
-      <button type="button" class="btn" onclick="displayPlayVideo()">Video (Beta)</button>
+      <button type="button" class="btn" onclick="displayPlayVideo()">Video</button>
+      <hr />
+      <a href="https://github.com/Harman-Maan/Auto-Bing-Search/blob/master/README.md" target="_blank" class="btn-icon"><i class="fa-solid fa-circle-info"></i></a>
+      <a href="mailto:harmanmaan4224@gmail.com" target="_blank" class="btn-icon"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://github.com/Harman-Maan/Auto-Bing-Search" target="_blank" class="btn-icon"><i class="fa-brands fa-github"></i></a>
     </div>
 
     <!--   History   -->
@@ -42,14 +53,14 @@
         <button type="button" class="btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
       </form>
       <div id="processing-tabs">
-        <h3>Generating Tabs</h3>
+        <h3>Generating Tabs... <i class="fa-solid fa-circle-notch fa-spin"></i></h3>
         <p>Tabs Created: <span class="changing-values" id="tabs-created">_-_</span></p>
         <p>Tabs Left: <span class="changing-values" id="tabs-left">_-_</span></p>
         <p>Estimated Time Left: <span class="changing-values" id="estimated-time-left">_-_</span> sec</p>
         <button type="button" class="btn stop-btn" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
       </div>
     </div>
-    <button type="button" class="btn" id="close-btn" onclick="closeSection()">Close</button>
+    <button type="button" class="btn-icon" id="close-btn" onclick="closeSection()"><i class="fa-solid fa-xmark"></i></button>
 
     <div id="play-video">
       <section id="play-video-content">
@@ -58,7 +69,7 @@
         <button type="button" class="btn" id="play-video-btn">Play</button>
       </section>
       <section id="video-playing">
-        <p>Let the video end... <span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
+        <p>Let the video end... <i class="fa-solid fa-circle-notch fa-spin"></i><span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
         <button type="button" class="btn stop-btn" id="stop-video">Stop</button>
       </section>
     </div>
