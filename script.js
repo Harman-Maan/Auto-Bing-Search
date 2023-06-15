@@ -1,12 +1,12 @@
 const boxContainer = document.getElementById("word");
 
 const historyContainer = document.getElementById("history");
-const historyBtn = document.getElementById("history-nav-btn");
 
 const autoSearchContainer = document.getElementById("auto-search");
-const autoSearchBtn = document.getElementById("auto-search-nav-btn");
 const autoSearchForm = document.getElementById("auto-search-form");
 const processingTabs = document.getElementById("processing-tabs");
+
+const videoPoints = document.getElementById("play-video");
 
 const closeBtn = document.getElementById("close-btn");
 
@@ -31,7 +31,7 @@ function getWord() {
 getWord();
 
 // This is to make history and auto search buttons in navbar work. Also, for the close button that appears when any of these buttons are clicked.
-function diplayHistory() {
+function displayHistory() {
   mappedHistory = history.map((word) => `<li>${word}</li>`);
 
   historyContainer.innerHTML = `<ol>${mappedHistory.join(" ")}</ol>`;
@@ -41,8 +41,13 @@ function diplayHistory() {
   closeSection();
 }
 
-function diplayAutoSearch() {
+function displayAutoSearch() {
   autoSearchContainer.style.display = "flex";
+  closeSection();
+}
+
+function displayPlayVideo() {
+  videoPoints.style.display = "flex";
   closeSection();
 }
 
@@ -51,13 +56,14 @@ function closeSection() {
     closeBtn.style.display = "none";
     autoSearchContainer.style.display = "none";
     historyContainer.style.display = "none";
+    videoPoints.style.display = "none";
   } else {
     closeBtn.style.display = "block";
   }
 }
 
 //handling the submit of auto-search form
-function diplayProcessingTabs() {
+function displayProcessingTabs() {
   autoSearchForm.style.display = "none";
   processingTabs.style.display = "flex";
 }
@@ -74,15 +80,15 @@ let searchInterval = document.getElementById("search-interval").value;
 
 function autoSearch() {
   searchInterval = document.getElementById("search-interval").value;
-  diplayProcessingTabs();
+  displayProcessingTabs();
   setTabMaker = setInterval(createTabs, searchInterval * 1000);
   // createTabs(); // So the the funtion is executed immediately, instead of waiting for setInterval
 }
 
 function search() {
   url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
-  // window.open(url, "_blank");
-  console.log(url);
+  window.open(url, "_blank");
+  // console.log(url);
 }
 
 // These are called so the content in processing-tabs can be updated as the tabs are generated

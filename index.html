@@ -11,8 +11,9 @@
   <body>
     <!-- Navbar -->
     <div class="navbar">
-      <button type="button" class="btn" id="auto-search-nav-btn" onclick="diplayAutoSearch()">Auto Search</button>
-      <button type="button" class="btn" id="history-nav-btn" onclick="diplayHistory()">History</button>
+      <button type="button" class="btn" onclick="displayAutoSearch()">Auto Search</button>
+      <button type="button" class="btn" onclick="displayHistory()">History</button>
+      <button type="button" class="btn" onclick="displayPlayVideo()">Video (Beta)</button>
     </div>
 
     <!--   History   -->
@@ -45,10 +46,22 @@
         <p>Tabs Created: <span class="changing-values" id="tabs-created">_-_</span></p>
         <p>Tabs Left: <span class="changing-values" id="tabs-left">_-_</span></p>
         <p>Estimated Time Left: <span class="changing-values" id="estimated-time-left">_-_</span> sec</p>
-        <button type="button" class="btn" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
+        <button type="button" class="btn stop-btn" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
       </div>
     </div>
     <button type="button" class="btn" id="close-btn" onclick="closeSection()">Close</button>
+
+    <div id="play-video">
+      <section id="play-video-content">
+        <p>You have watched <span class="changing-values" id="videos-watched">0</span> video today.</p>
+        <p>Duration: <span class="changing-values" id="video-duration">_-_</span> sec</p>
+        <button type="button" class="btn" id="play-video-btn">Play</button>
+      </section>
+      <section id="video-playing">
+        <p>Let the video end... <span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
+        <button type="button" class="btn stop-btn" id="stop-video">Stop</button>
+      </section>
+    </div>
 
     <!-- Static -->
     <h1 id="word">_-_-_-_-_</h1>
@@ -56,6 +69,8 @@
       <button type="button" class="btn" onclick="getWord()">Get New Word</button>
       <button type="button" class="btn" id="search" onclick="search()">🔎</button>
     </div>
+
     <script src="script.js"></script>
+    <script src="reward-videos.js" type="module"></script>
   </body>
 </html>
