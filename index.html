@@ -18,9 +18,9 @@
   <body>
     <!-- Navbar -->
     <div class="navbar">
-      <button type="button" class="btn" onclick="displayAutoSearch()">Auto Search</button>
-      <button type="button" class="btn" onclick="displayHistory()">History</button>
-      <button type="button" class="btn" onclick="displayPlayVideo()">Video</button>
+      <button type="button" class="btn-nav" onclick="displayAutoSearch()">Auto Search</button>
+      <button type="button" class="btn-nav" onclick="displayHistory()">History</button>
+      <button type="button" class="btn-nav" onclick="displayPlayVideo()">Video</button>
       <hr />
       <a href="https://github.com/Harman-Maan/Auto-Bing-Search/blob/master/README.md" target="_blank" class="btn-icon"><i class="fa-solid fa-circle-info"></i></a>
       <a href="mailto:harmanmaan4224@gmail.com" target="_blank" class="btn-icon"><i class="fa-solid fa-envelope"></i></a>
@@ -50,7 +50,7 @@
             <span id="total-points" class="changing-values"></span> points
           </label>
         </fieldset>
-        <button type="button" class="btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
+        <button type="button" class="btn start-btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
       </form>
       <div id="processing-tabs">
         <h3>Generating Tabs... <i class="fa-solid fa-circle-notch fa-spin"></i></h3>
@@ -66,10 +66,10 @@
       <section id="play-video-content">
         <p>You have watched <span class="changing-values" id="videos-watched">0</span> video today.</p>
         <p>Duration: <span class="changing-values" id="video-duration">_-_</span> sec</p>
-        <button type="button" class="btn" id="play-video-btn">Play</button>
+        <button type="button" class="btn start-btn" id="play-video-btn">Start</button>
       </section>
       <section id="video-playing">
-        <p>Let the video end... <i class="fa-solid fa-circle-notch fa-spin"></i><span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
+        <p>Let the video end... <span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
         <button type="button" class="btn stop-btn" id="stop-video">Stop</button>
       </section>
     </div>
@@ -77,11 +77,11 @@
     <!-- Static -->
     <h1 id="word">_-_-_-_-_</h1>
     <div class="content">
-      <button type="button" class="btn" onclick="getWord()">Get New Word</button>
+      <button type="button" class="btn" id="btn-get-word" onclick="getWord()">Get New Word</button>
       <button type="button" class="btn" id="search" onclick="search()">🔎</button>
     </div>
 
-    <script src="script.js"></script>
-    <script src="reward-videos.js" type="module"></script>
+    <script src="js/script.js"></script>
+    <script src="js/reward-videos.js" type="module"></script>
   </body>
 </html>

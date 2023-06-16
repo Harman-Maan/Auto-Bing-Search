@@ -16,31 +16,42 @@ body {
   font-family: monospace;
 }
 
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+button,
+input,
+select {
+  border: none;
+  font-family: monospace;
+  border-radius: 4px;
 }
 
-#search {
-  border-radius: 50%;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-}
-
-#word {
-  font-size: 3rem;
+button,
+a {
+  cursor: pointer;
 }
 
 .btn-icon {
-  border: none;
-  font-size: 1.3rem;
+  font-size: 1rem;
   background-color: transparent;
-  cursor: pointer;
   text-decoration: none;
   color: #fff;
   padding: 0 0.15rem;
+}
+
+.start-btn {
+  background-color: #0a950a;
+  color: #fff;
+}
+
+.start-btn:hover {
+  background-color: #0db90d;
+}
+
+.stop-btn {
+  background-color: #ff1500;
+  color: #fff;
+}
+.stop-btn:hover {
+  background-color: #fd311f;
 }
 
 /* ---- NavBar ----- */
@@ -67,9 +78,22 @@ body {
   border: 1px solid #fff;
 }
 
-.navbar .btn {
+.navbar .btn-nav {
+  background-color: transparent;
+  border-bottom: 1px solid #dcd90a;
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar .btn-nav:hover {
   background-color: #fff;
   color: #000;
+}
+
+.navbar .btn-icon:hover {
+  color: #ededed;
 }
 
 #close-btn {
@@ -81,6 +105,33 @@ body {
   font-size: 2rem;
 }
 
+/* ---- Main Area ----- */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#search {
+  border-radius: 50%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+#word {
+  font-size: 3rem;
+}
+
+#btn-get-word,
+#search {
+  background-color: steelblue;
+}
+#btn-get-word:hover,
+#search:hover {
+  background-color: #569eda;
+}
+
 /* ---- Setting basic styles ----- */
 #history,
 #auto-search,
@@ -89,7 +140,7 @@ body {
   top: 0%;
   width: 100%;
   min-height: 100%;
-  background-color: #333;
+  background-color: #111;
   color: #fff;
   display: none;
   font-size: 1.4rem;
@@ -136,10 +187,8 @@ legend {
 #auto-search input,
 #search-interval,
 .btn {
-  border: none;
   font-size: 1.1rem;
   padding: 5px 10px;
-  font-family: monospace;
 }
 
 #auto-search input,
@@ -154,21 +203,8 @@ legend {
   outline: none;
 }
 
-#auto-search .btn {
-  color: #fff;
-}
-
-#auto-search-btn {
-  background-color: #0a950a;
-}
-
 .changing-values {
   color: #adff81;
-}
-
-.btn {
-  background-color: steelblue;
-  cursor: pointer;
 }
 
 /* Processing Tabs */
@@ -177,11 +213,6 @@ legend {
   align-items: start;
   flex-direction: column;
   gap: 1rem;
-}
-
-.stop-btn {
-  background-color: #ff1500;
-  /* color: #fff; */
 }
 
 /* ---- Play Video ----- */
@@ -207,6 +238,9 @@ legend {
 
 /* ---- Making the Site Responsive ----- */
 @media (max-width: 540px) {
+  .navbar .btn-nav {
+    margin: 0;
+  }
   fieldset {
     padding: 0.5rem 0.5rem;
     font-size: 1.1rem;
@@ -217,10 +251,8 @@ legend {
   }
 }
 @media (max-width: 390px) {
+  legend,
   fieldset {
-    font-size: 0.9rem;
-  }
-  legend {
     font-size: 0.8rem;
   }
 }
@@ -228,9 +260,8 @@ legend {
 @media (max-width: 410px) {
   #history,
   #processing-tabs,
-  #play-video,
-  fieldset {
-    font-size: 1rem;
+  #play-video {
+    font-size: 0.9rem;
   }
   #word {
     font-size: 2.5rem;
