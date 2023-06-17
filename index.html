@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/Logo.png" />
+    <!-- Fontawsome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,20 +13,55 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Random Word Generator</title>
   </head>
   <body>
     <!-- Navbar -->
-    <div class="navbar">
-      <button type="button" class="btn-nav" onclick="displayAutoSearch()">Auto Search</button>
-      <button type="button" class="btn-nav" onclick="displayHistory()">History</button>
-      <button type="button" class="btn-nav" onclick="displayPlayVideo()">Video</button>
-      <hr />
-      <a href="https://github.com/Harman-Maan/Auto-Bing-Search/blob/master/README.md" target="_blank" class="btn-icon"><i class="fa-solid fa-circle-info"></i></a>
-      <a href="mailto:harmanmaan4224@gmail.com" target="_blank" class="btn-icon"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://github.com/Harman-Maan/Auto-Bing-Search" target="_blank" class="btn-icon"><i class="fa-brands fa-github"></i></a>
-    </div>
+    <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="./assets/logo.png" alt="Logo" width="30" height="30" />
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <li class="nav-item">
+              <button type="button" class="btn" onclick="displayAutoSearch()">Auto Search</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn" onclick="displayHistory()">History</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn" onclick="displayPlayVideo()">Video</button>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-item">
+          <a href="https://github.com/Harman-Maan/Auto-Bing-Search/blob/master/README.md" target="_blank" class="btn-icon"><i class="fa-solid fa-circle-info"></i></a>
+          <a href="mailto:harmanmaan4224@gmail.com" target="_blank" class="btn-icon"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://github.com/Harman-Maan/Auto-Bing-Search" target="_blank" class="btn-icon"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
 
     <!--   History   -->
     <div id="history"></div>
@@ -50,37 +86,46 @@
             <span id="total-points" class="changing-values"></span> points
           </label>
         </fieldset>
-        <button type="button" class="btn start-btn" id="auto-search-btn" onclick="autoSearch()">Start</button>
+
+        <button type="button" class="btn btn-success" id="auto-search-btn" onclick="autoSearch()">Start</button>
       </form>
       <div id="processing-tabs">
         <h3>Generating Tabs... <i class="fa-solid fa-circle-notch fa-spin"></i></h3>
         <p>Tabs Created: <span class="changing-values" id="tabs-created">_-_</span></p>
         <p>Tabs Left: <span class="changing-values" id="tabs-left">_-_</span></p>
         <p>Estimated Time Left: <span class="changing-values" id="estimated-time-left">_-_</span> sec</p>
-        <button type="button" class="btn stop-btn" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
+        <button type="button" class="btn btn-danger" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
       </div>
     </div>
-    <button type="button" class="btn-icon" id="close-btn" onclick="closeSection()"><i class="fa-solid fa-xmark"></i></button>
+    <button type="button" class="btn btn-icon" id="close-btn" onclick="closeSection()"><i class="fa-solid fa-xmark"></i></button>
 
     <div id="play-video">
       <section id="play-video-content">
         <p>You have watched <span class="changing-values" id="videos-watched">0</span> video today.</p>
         <p>Duration: <span class="changing-values" id="video-duration">_-_</span> sec</p>
-        <button type="button" class="btn start-btn" id="play-video-btn">Start</button>
+        <button type="button" class="btn btn-success" id="play-video-btn">Start</button>
       </section>
       <section id="video-playing">
         <p>Let the video end... <span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
-        <button type="button" class="btn stop-btn" id="stop-video">Stop</button>
+        <button type="button" class="btn btn-danger" id="stop-video">Stop</button>
       </section>
     </div>
 
     <!-- Static -->
     <h1 id="word">_-_-_-_-_</h1>
     <div class="content">
-      <button type="button" class="btn" id="btn-get-word" onclick="getWord()">Get New Word</button>
-      <button type="button" class="btn" id="search" onclick="search()">🔎</button>
+      <button type="button" class="btn btn-primary" id="btn-get-word" onclick="getWord()">Get New Word</button>
+      <button type="button" class="btn btn-primary" id="search" onclick="search()">🔎</button>
     </div>
 
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Files -->
     <script src="js/script.js"></script>
     <script src="js/reward-videos.js" type="module"></script>
   </body>
