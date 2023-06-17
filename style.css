@@ -16,7 +16,6 @@ body {
   font-family: monospace;
 }
 
-button,
 input,
 select {
   border: none;
@@ -24,7 +23,6 @@ select {
   border-radius: 4px;
 }
 
-button,
 a {
   cursor: pointer;
 }
@@ -37,21 +35,8 @@ a {
   padding: 0 0.15rem;
 }
 
-.start-btn {
-  background-color: #0a950a;
-  color: #fff;
-}
-
-.start-btn:hover {
-  background-color: #0db90d;
-}
-
-.stop-btn {
-  background-color: #ff1500;
-  color: #fff;
-}
-.stop-btn:hover {
-  background-color: #fd311f;
+.btn:focus {
+  border: none;
 }
 
 /* ---- NavBar ----- */
@@ -123,15 +108,6 @@ a {
   font-size: 3rem;
 }
 
-#btn-get-word,
-#search {
-  background-color: steelblue;
-}
-#btn-get-word:hover,
-#search:hover {
-  background-color: #569eda;
-}
-
 /* ---- Setting basic styles ----- */
 #history,
 #auto-search,
@@ -185,8 +161,7 @@ legend {
 }
 
 #auto-search input,
-#search-interval,
-.btn {
+#search-interval {
   font-size: 1.1rem;
   padding: 5px 10px;
 }
@@ -266,9 +241,6 @@ legend {
   #word {
     font-size: 2.5rem;
   }
-  .btn {
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 345px) {
@@ -277,8 +249,5 @@ legend {
   }
   #search {
     font-size: 1rem;
-  }
-  .btn {
-    font-size: 0.8rem;
   }
 }
