@@ -93,15 +93,18 @@ function autoSearch() {
   // createTabs(); // So the the funtion is executed immediately, instead of waiting for setInterval
 }
 
+let createdTabsList = [];
+
 function search() {
   url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
-  window.open(url, "_blank");
+  let tab = window.open(url, "_blank");
+  createdTabsList.push(tab);
   // console.log(url);
 }
 
 // These are called so the content in processing-tabs can be updated as the tabs are generated
-const tabsCreated = document.getElementById("tabs-created");
-const tabsLeft = document.getElementById("tabs-left");
+const numTabsCreated = document.getElementById("tabs-created");
+const numTabsLeft = document.getElementById("tabs-left");
 const estimatedTimeLeft = document.getElementById("estimated-time-left");
 
 function createTabs() {
@@ -117,8 +120,8 @@ function createTabs() {
   else if (numOfSearches < 2) numOfSearches = 2;
 
   // calculation for numbers that will be displayed in processing-tabs
-  tabsCreated.textContent = tabsCount;
-  tabsLeft.textContent = numOfSearches - tabsCount;
+  numTabsCreated.textContent = tabsCount;
+  numTabsLeft.textContent = numOfSearches - tabsCount;
   estimatedTimeLeft.textContent = (numOfSearches - tabsCount) * searchInterval;
 
   if (tabsCount >= numOfSearches) {
@@ -132,8 +135,8 @@ function stopAutoSearch() {
   hideProcessingTabs();
 
   // Reseting the values
-  tabsCreated.textContent = "_-_";
-  tabsLeft.textContent = "_-_";
+  numTabsCreated.textContent = "_-_";
+  numTabsLeft.textContent = "_-_";
   estimatedTimeLeft.textContent = "_-_";
 }
 
@@ -154,3 +157,9 @@ function calculatePoints() {
   estimatedTime.textContent = tabs * searchInterval;
 }
 calculatePoints();
+
+function closeTabs() {
+  for (let i in createdTabsList) {
+    createdTabsList[i].close();
+  }
+}

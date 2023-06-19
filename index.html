@@ -90,7 +90,10 @@
           </label>
         </fieldset>
 
-        <button type="button" class="btn btn-success" id="auto-search-btn" onclick="autoSearch()">Start</button>
+        <div>
+          <button type="button" class="btn btn-success" id="auto-search-btn" onclick="autoSearch()">Start</button>
+          <button type="button" class="btn btn-warning" onclick="closeTabs()">Close Tabs (Beta)</button>
+        </div>
       </form>
       <div id="processing-tabs">
         <h3>Generating Tabs... <i class="fa-solid fa-circle-notch fa-spin"></i></h3>
@@ -100,6 +103,8 @@
         <button type="button" class="btn btn-danger" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
       </div>
     </section>
+
+    <!-- Close Button -->
     <button type="button" class="btn btn-icon" id="close-btn" onclick="closeSection()"><i class="fa-solid fa-xmark"></i></button>
 
     <!-- Fitness Video -->
