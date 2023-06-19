@@ -25,7 +25,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark">
+    <nav class="navbar fixed-top navbar-expand-sm bg-dark" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="./assets/logo.png" alt="Logo" width="30" height="30" />
@@ -41,6 +41,9 @@
             </li>
             <li class="nav-item">
               <button type="button" class="btn" onclick="displayPlayVideo()">Video</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn" onclick="displayGuessPrice()">Guess Price</button>
             </li>
           </ul>
         </div>
@@ -64,10 +67,10 @@
     </nav>
 
     <!--   History   -->
-    <div id="history"></div>
+    <section id="history"></section>
 
     <!--   Auto Search   -->
-    <div id="auto-search">
+    <section id="auto-search">
       <form id="auto-search-form">
         <fieldset>
           <legend>Time interval between each search:</legend>
@@ -96,10 +99,11 @@
         <p>Estimated Time Left: <span class="changing-values" id="estimated-time-left">_-_</span> sec</p>
         <button type="button" class="btn btn-danger" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
       </div>
-    </div>
+    </section>
     <button type="button" class="btn btn-icon" id="close-btn" onclick="closeSection()"><i class="fa-solid fa-xmark"></i></button>
 
-    <div id="play-video">
+    <!-- Fitness Video -->
+    <section id="play-video">
       <section id="play-video-content">
         <p>You have watched <span class="changing-values" id="videos-watched">0</span> video today.</p>
         <p>Duration: <span class="changing-values" id="video-duration">_-_</span> sec</p>
@@ -109,7 +113,16 @@
         <p>Let the video end... <span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
         <button type="button" class="btn btn-danger" id="stop-video">Stop</button>
       </section>
-    </div>
+    </section>
+
+    <!-- Guess Price -->
+    <section id="guess-price">
+      <div class="container input-group mb-3 search-product">
+        <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="search" class="form-control" id="search-field" placeholder="Search Product" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+      </div>
+      <div class="container-md list-group" id="product-list" data-bs-theme="dark"></div>
+    </section>
 
     <!-- Static -->
     <h1 id="word">_-_-_-_-_</h1>
@@ -128,5 +141,6 @@
     <!-- Files -->
     <script src="js/script.js"></script>
     <script src="js/reward-videos.js" type="module"></script>
+    <script src="js/guess-the-price-helper.js" type="module"></script>
   </body>
 </html>

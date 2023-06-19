@@ -1,4 +1,4 @@
-import data from "../assets/Fitness-video-data.js";
+import data from "../assets/data/Fitness-video-data.js";
 
 const playVideoBtn = document.getElementById("play-video-btn");
 const videoPlayingSection = document.getElementById("video-playing");

@@ -8,6 +8,8 @@ const processingTabs = document.getElementById("processing-tabs");
 
 const videoPoints = document.getElementById("play-video");
 
+const guessPrice = document.getElementById("guess-price");
+
 const closeBtn = document.getElementById("close-btn");
 
 let history = [];
@@ -51,12 +53,18 @@ function displayPlayVideo() {
   closeSection();
 }
 
+function displayGuessPrice() {
+  guessPrice.style.display = "flex";
+  closeSection();
+}
+
 function closeSection() {
   if (closeBtn.style.display == "block") {
     closeBtn.style.display = "none";
     autoSearchContainer.style.display = "none";
     historyContainer.style.display = "none";
     videoPoints.style.display = "none";
+    guessPrice.style.display = "none";
   } else {
     closeBtn.style.display = "block";
   }
