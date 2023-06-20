@@ -85,7 +85,7 @@ export default [
   },
   {
     index: 14,
-    name: "Adidas DON Issues...",
+    name: "Adidas D.O.N. Issues...",
     price: "60",
     type: "Hoodie (White)",
   },
@@ -328,6 +328,36 @@ export default [
     name: "REAX Alta Mesh Jaket...",
     price: "199.99",
     type: "Jacket",
+  },
+  {
+    index: 55,
+    name: "Reistor sunset to sunrise dress",
+    price: "90.00",
+    type: "Dress",
+  },
+  {
+    index: 56,
+    name: "AGOLDE Cherie high rise...",
+    price: "129.00",
+    type: "Jeans",
+  },
+  {
+    index: 57,
+    name: "C wonder by chirstain siriana... Tweed Jacket",
+    price: "119.99",
+    type: "Jacket",
+  },
+  {
+    index: 58,
+    name: "Street & steel open Road...",
+    price: "39.99",
+    type: "Helmet",
+  },
+  {
+    index: 59,
+    name: "Adidas D.O.N. Issues... Basket ball shoes",
+    price: "60.00",
+    type: "Shoes",
   },
 ];
 
