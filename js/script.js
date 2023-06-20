@@ -162,4 +162,5 @@ function closeTabs() {
   for (let i in createdTabsList) {
     createdTabsList[i].close();
   }
+  createdTabsList = [];
 }
