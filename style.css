@@ -237,10 +237,16 @@ legend {
 }
 
 @media (max-width: 345px) {
+  .btn {
+    font-size: 0.7rem;
+  }
   #word {
     font-size: 2rem;
   }
   #search {
     font-size: 1rem;
+  }
+  #close-btn {
+    font-size: 1.5rem;
   }
 }
