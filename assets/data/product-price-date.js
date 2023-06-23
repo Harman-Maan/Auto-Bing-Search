@@ -386,7 +386,7 @@ export default [
   {
     index: 64,
     name: "Ann Taylor Mixed Pearlized... Drop Earrings",
-    price: "45.50",
+    price: "49.50",
     type: "Earrings",
   },
   {
@@ -478,6 +478,66 @@ export default [
     name: "Solo Stove Bonfire 3.0 Firepit,... Ash",
     price: "249.98",
     type: "",
+  },
+  {
+    index: 80,
+    name: "Graham Brown hummered... Table Lamp.. Gold/Ivory",
+    price: "64.97",
+    type: "Table lamp",
+  },
+  {
+    index: 81,
+    name: 'GLD signature Cuban - 6mm... Size 18", 18k chain...',
+    price: "79.50",
+    type: "Gold Chain",
+  },
+  {
+    index: 82,
+    name: "Vans Mountain Mulo Shoe...",
+    price: "49.95",
+    type: "Shoes/Slippers",
+  },
+  {
+    index: 83,
+    name: "Concierge Collection Multicolr...  Cotton Throw",
+    price: "29.95",
+    type: "",
+  },
+  {
+    index: 84,
+    name: "Acacia Wood Octagon Tray...",
+    price: "24.97",
+    type: "Tray",
+  },
+  {
+    index: 85,
+    name: "Stellan Dusty Tricking Strips...",
+    price: "14.98",
+    type: "Pillows",
+  },
+  {
+    index: 86,
+    name: "Nike USMNT '22 Away Replica",
+    price: "43.97",
+    type: "Jersey/T-Shirt",
+  },
+  {
+    index: 87,
+    name: "The Sak 120 Hobo Bag",
+    price: "99.00",
+    type: "Bag",
+  },
+  {
+    index: 88,
+    name: "Gather's Day Chocolate Coveres... Stawberries - Regular",
+    price: "51.99",
+    type: "",
+  },
+  {
+    index: 89,
+    name: "Adidas CODECHAOS 22... Spikeless Golf...",
+    price: "80.00",
+    type: "Shoes",
   },
 ];
 
