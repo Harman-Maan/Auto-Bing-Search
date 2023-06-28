@@ -73,7 +73,7 @@ export default [
   },
   {
     index: 12,
-    name: "Ray-Ban Sunglasses Abitor...",
+    name: "Ray-Ban Sunglasses Aviator...",
     price: "170.99",
     type: "Glasses",
   },
@@ -272,7 +272,7 @@ export default [
   {
     index: 45,
     name: "Routine Morning Routine 30...sticks",
-    price: "35.94",
+    price: "35.99",
     type: "",
   },
   {
