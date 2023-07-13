@@ -1,6 +1,7 @@
 import data from "../assets/data/Fitness-video-data.js";
 
 const playVideoBtn = document.getElementById("play-video-btn");
+const AlreadyWatchedBtn = document.getElementById("already-watched-btn");
 const videoPlayingSection = document.getElementById("video-playing");
 const playVideoContent = document.getElementById("play-video-content");
 const stopVideo = document.getElementById("stop-video");
@@ -11,6 +12,7 @@ let currentId;
 
 playVideoBtn.addEventListener("click", createVideoTab);
 stopVideo.addEventListener("click", stopVideoTimeOut);
+AlreadyWatchedBtn.addEventListener("click", nextVideo);
 
 let date = `${new Date().getFullYear()}/${new Date().getMonth()}/${new Date().getDate()}`;
 let videosPlayed;
@@ -94,4 +96,12 @@ function stopVideoTimeOut() {
   clearTimeout(setVideoTimeOut);
   hideVideoPlayingSection();
   estimatedVideoLeft.textContent = "_-_";
+}
+
+function nextVideo() {
+  currentId++;
+  if (currentId >= data.length) currentId = 0;
+
+  localStorage.setItem("currentId", currentId);
+  videoDuration.textContent = data[currentId].duration;
 }

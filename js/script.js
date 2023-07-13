@@ -20,15 +20,17 @@ function displayWord(word) {
   boxContainer.textContent = word;
 }
 
-function getWord() {
+async function getWord() {
   // Making Https request (Documentation for API: https://random-word-api.herokuapp.com/home)
-  fetch(`https://random-word-api.herokuapp.com/word`)
-    .then((result) => result.json())
-    .then((data) => {
-      // console.log(data); // Log the response to console
-      displayWord(data[0]);
-    })
-    .catch((err) => console.log("not found", err));
+  try {
+    const result = await fetch(`https://random-word-api.herokuapp.com/word`);
+    const data = await result.json();
+    // console.log(data); // Log the response to console
+    displayWord(data[0]);
+    return data[0];
+  } catch (err) {
+    console.log("not found", err);
+  }
 }
 getWord();
 
@@ -99,7 +101,7 @@ function search() {
   url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
   let tab = window.open(url, "_blank");
   createdTabsList.push(tab);
-  // console.log(url);
+  if (createdTabsList.length > 10) closeTabs(2);
 }
 
 // These are called so the content in processing-tabs can be updated as the tabs are generated
@@ -107,9 +109,9 @@ const numTabsCreated = document.getElementById("tabs-created");
 const numTabsLeft = document.getElementById("tabs-left");
 const estimatedTimeLeft = document.getElementById("estimated-time-left");
 
-function createTabs() {
+async function createTabs() {
   search();
-  getWord();
+  await getWord();
 
   tabsCount++;
 
@@ -138,6 +140,8 @@ function stopAutoSearch() {
   numTabsCreated.textContent = "_-_";
   numTabsLeft.textContent = "_-_";
   estimatedTimeLeft.textContent = "_-_";
+
+  setTimeout(() => closeTabs(createTabs.length), 20000);
 }
 
 // Here we calculate the estimated time and the points inside auto-search
@@ -158,9 +162,9 @@ function calculatePoints() {
 }
 calculatePoints();
 
-function closeTabs() {
-  for (let i in createdTabsList) {
-    createdTabsList[i].close();
+function closeTabs(num) {
+  for (let i = 0; i < num; i++) {
+    createdTabsList[0].close();
+    createdTabsList.shift();
   }
-  createdTabsList = [];
 }

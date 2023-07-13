@@ -21,7 +21,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Random Word Generator</title>
+    <title>Bing Auto-Search</title>
   </head>
   <body>
     <!-- Navbar -->
@@ -89,10 +89,13 @@
             <span id="total-points" class="changing-values"></span> points
           </label>
         </fieldset>
-
+        <div class="form-check form-switch my-1">
+          <input class="form-check-input bg-secondary border-secondary-subtle" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+          <label class="form-check-label mt-1 fs-5" for="flexSwitchCheckDefault">Auto Close tabs</label>
+        </div>
         <div>
           <button type="button" class="btn btn-success" id="auto-search-btn" onclick="autoSearch()">Start</button>
-          <button type="button" class="btn btn-warning" onclick="closeTabs()">Close Tabs (Beta)</button>
+          <button type="button" class="btn btn-warning" onclick="closeTabs(createdTabsList.length)">Close Tabs</button>
         </div>
       </form>
       <div id="processing-tabs">
@@ -104,15 +107,15 @@
       </div>
     </section>
 
-    <!-- Close Button -->
-    <button type="button" class="btn btn-icon" id="close-btn" onclick="closeSection()"><i class="fa-solid fa-xmark"></i></button>
-
-    <!-- Fitness Video -->
+    <!-- Video -->
     <section id="play-video">
       <section id="play-video-content">
         <p>You have watched <span class="changing-values" id="videos-watched">0</span> video today.</p>
         <p>Duration: <span class="changing-values" id="video-duration">_-_</span> sec</p>
-        <button type="button" class="btn btn-success" id="play-video-btn">Start</button>
+        <div>
+          <button type="button" class="btn btn-success" id="play-video-btn">Start</button>
+          <button type="button" class="btn btn-warning" id="already-watched-btn">Already Watched</button>
+        </div>
       </section>
       <section id="video-playing">
         <p>Let the video end... <span class="changing-values" id="estimated-video-left">_-_</span> sec</p>
@@ -128,6 +131,9 @@
       </div>
       <div class="container-md list-group" id="product-list" data-bs-theme="dark"></div>
     </section>
+
+    <!-- Close Button -->
+    <button type="button" class="btn btn-icon" id="close-btn" onclick="closeSection()"><i class="fa-solid fa-xmark"></i></button>
 
     <!-- Static -->
     <h1 id="word">_-_-_-_-_</h1>
