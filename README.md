@@ -1,4 +1,4 @@
-# Random-Word-Search
+# Auto Bing Search
 
 Visit the site [here](https://harman-maan.github.io/Auto-Bing-Search/).
 
