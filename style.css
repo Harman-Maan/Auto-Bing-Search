@@ -132,6 +132,7 @@ fieldset {
   padding: 0.5rem 0.75rem;
   border-radius: 10px;
   width: 100%;
+  border: 1px solid #ddd;
 }
 
 legend {

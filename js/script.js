@@ -4,6 +4,7 @@ const historyContainer = document.getElementById("history");
 
 const autoSearchContainer = document.getElementById("auto-search");
 const autoSearchForm = document.getElementById("auto-search-form");
+const autoCloseTabs = document.getElementById("auto-close-tabs");
 const processingTabs = document.getElementById("processing-tabs");
 
 const videoPoints = document.getElementById("play-video");
@@ -101,7 +102,7 @@ function search() {
   url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
   let tab = window.open(url, "_blank");
   createdTabsList.push(tab);
-  if (createdTabsList.length > 10) closeTabs(2);
+  if (autoCloseTabs.checked && createdTabsList.length > 10) closeTabs(2);
 }
 
 // These are called so the content in processing-tabs can be updated as the tabs are generated
@@ -141,7 +142,7 @@ function stopAutoSearch() {
   numTabsLeft.textContent = "_-_";
   estimatedTimeLeft.textContent = "_-_";
 
-  setTimeout(() => closeTabs(createTabs.length), 20000);
+  if (autoCloseTabs.checked) setTimeout(() => closeTabs(createTabs.length), 20000);
 }
 
 // Here we calculate the estimated time and the points inside auto-search
