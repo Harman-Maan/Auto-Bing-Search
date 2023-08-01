@@ -7,12 +7,12 @@
 body {
   background-color: black;
   min-height: 100vh;
+  max-width: 1400px;
   color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
-  gap: 1rem;
 }
 
 input,
@@ -45,117 +45,95 @@ a {
 }
 
 /* ---- NavBar ----- */
-
 .navbar {
-  z-index: 0;
+  z-index: 1;
+  background-color: #31d4ea;
+  width: 100%;
 }
 
 .navbar .btn-icon:hover {
   color: #ededed;
 }
 
-#close-btn {
-  position: absolute;
-  top: 1%;
-  right: 1%;
-  display: none;
-  z-index: 2;
-  font-size: 2rem;
-}
-
 .navbar-toggler {
   font-size: 1rem;
 }
 
-/* ---- Main Area ----- */
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-#search {
-  border-radius: 50%;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-}
-
-#word {
-  font-size: 3rem;
-  font-family: monospace;
-}
-
-/* ---- Setting basic styles ----- */
-#history,
-#auto-search,
-#play-video,
-#guess-price {
-  position: absolute;
-  top: 0%;
-  width: 100%;
-  min-height: 100%;
-  background-color: #111;
-  color: #fff;
-  display: none;
-  font-size: 1.4rem;
-  flex-direction: column;
-  padding: 1rem;
-  z-index: 1;
-}
-
-/* ---- History ----- */
-#history {
-  justify-content: flex-start;
-  align-items: start;
-  padding-top: 3rem;
-}
-
-#history ol {
-  list-style-position: inside;
-}
-
 /* ---- Auto Search ----- */
+
 #auto-search {
-  justify-content: center;
-  align-items: start;
+  position: relative;
+  color: #fff;
+  padding: 1rem 2rem;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #127596, #31d4ea);
+  height: calc(100vh - 59px);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+fieldset,
+legend,
+#fieldset-inputs input,
+select,
+label {
+  font-size: 1.3rem;
+  font-family: sans-serif;
+}
+#auto-search-btn,
+#close-tabs-btn {
+  font-size: 1rem;
+  font-family: sans-serif;
 }
 
 #auto-search-form {
   display: flex;
   align-items: start;
-  gap: 0.5rem;
+  gap: 5rem;
   flex-direction: column;
+  z-index: 1;
+}
+
+#auto-search-form #fildset-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 fieldset {
   padding: 0.5rem 0.75rem;
-  border-radius: 10px;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-legend {
-  margin-right: 3rem;
-  padding: 0.2rem;
+  border: 1px solid #ffffff42;
+  border-radius: 0.5rem;
+  padding-right: 3rem;
 }
 
 #auto-search input,
 #search-interval {
-  font-size: 1.1rem;
   padding: 5px 10px;
 }
 
+#auto-search #num-of-searches {
+  width: 50px;
+}
+
 #auto-search input,
 #search-interval {
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   border-radius: 0.5rem;
 }
 
 #auto-search input:focus,
 #search-interval:focus {
   outline: none;
+}
+
+#auto-search #close-tabs-btn {
+  display: none;
 }
 
 .changing-values {
@@ -167,48 +145,58 @@ legend {
   display: none;
   align-items: start;
   flex-direction: column;
+  z-index: 1;
 }
 
-/* ---- Play Video ----- */
-#play-video {
-  justify-content: center;
-  align-items: start;
+/* Medal Image */
+#medal-img-holder {
+  width: 40%;
 }
 
-#play-video-content,
-#video-playing {
-  flex-direction: column;
-  gap: 1rem;
-  align-items: start;
+#medal {
+  margin: auto;
+  width: 300px;
 }
 
-#play-video-content {
-  display: flex;
+/* Waves */
+#waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 0;
 }
 
-#video-playing {
-  display: none;
+#waves svg {
+  position: relative;
+  display: block;
+  width: 1400px;
+  height: 70px;
 }
 
-/* Guess Price */
-#guess-price {
-  padding-top: 4rem;
-  justify-content: start;
-  align-items: center;
-}
-
-#guess-price .search-product {
-  max-width: 600px;
-}
-
-.product-name {
-  color: #ffffff;
+#waves .shape-fill {
+  fill: #31d4ea;
 }
 
 /* ---- Making the Site Responsive ----- */
+@media (max-width: 880px) {
+  #medal-img-holder {
+    display: none;
+  }
+}
+
 @media (max-width: 540px) {
-  #guess-price {
-    font-size: 1.2rem;
+  #auto-search {
+    min-height: 50vh;
+  }
+  #auto-search-form {
+    gap: 2rem;
+  }
+  #waves {
+    width: 1000px;
+    right: 0;
   }
   .btn {
     font-size: 0.8rem;
@@ -216,32 +204,27 @@ legend {
   .navbar .btn-nav {
     margin: 0;
   }
+  #auto-search #fildset-inputs input,
+  #auto-search #fildset-inputs select {
+    font-size: 0.8rem;
+  }
   fieldset,
   .form-check-label {
     padding: 0.5rem 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   legend {
-    margin-right: 1.1rem;
     padding: 0.2rem;
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 410px) {
-  #history,
-  #processing-tabs,
-  #play-video,
-  #guess-price {
+  #processing-tabs {
     font-size: 1rem;
   }
-  .product-name {
-    font-size: 1.1rem;
-  }
-
-  #word {
-    font-size: 2.5rem;
-  }
 }
+
 @media (max-width: 390px) {
   legend,
   fieldset,
@@ -251,16 +234,10 @@ legend {
 }
 
 @media (max-width: 345px) {
+  #auto-search {
+    padding-top: 2rem;
+  }
   .btn {
     font-size: 0.7rem;
-  }
-  #word {
-    font-size: 2rem;
-  }
-  #search {
-    font-size: 1rem;
-  }
-  #close-btn {
-    font-size: 1.5rem;
   }
 }

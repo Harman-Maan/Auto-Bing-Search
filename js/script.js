@@ -6,71 +6,16 @@ const autoSearchContainer = document.getElementById("auto-search");
 const autoSearchForm = document.getElementById("auto-search-form");
 const autoCloseTabs = document.getElementById("auto-close-tabs");
 const processingTabs = document.getElementById("processing-tabs");
-
-const videoPoints = document.getElementById("play-video");
-
-const guessPrice = document.getElementById("guess-price");
-
-const closeBtn = document.getElementById("close-btn");
+const closeTabsBtn = document.getElementById("close-tabs-btn");
 
 let history = [];
-
-function displayWord(word) {
-  word = word[0].toUpperCase() + word.slice(1);
-  history.push(word);
-  boxContainer.textContent = word;
-}
-
-async function getWord() {
-  // Making Https request (Documentation for API: https://random-word-api.herokuapp.com/home)
-  try {
-    const result = await fetch(`https://random-word-api.herokuapp.com/word`);
-    const data = await result.json();
-    // console.log(data); // Log the response to console
-    displayWord(data[0]);
-    return data[0];
-  } catch (err) {
-    console.log("not found", err);
-  }
-}
-getWord();
 
 // This is to make history and auto search buttons in navbar work. Also, for the close button that appears when any of these buttons are clicked.
 function displayHistory() {
   mappedHistory = history.map((word) => `<li>${word}</li>`);
-
   historyContainer.innerHTML = `<ol>${mappedHistory.join(" ")}</ol>`;
-
   historyContainer.style.display = "flex";
-
   closeSection();
-}
-
-function displayAutoSearch() {
-  autoSearchContainer.style.display = "flex";
-  closeSection();
-}
-
-function displayPlayVideo() {
-  videoPoints.style.display = "flex";
-  closeSection();
-}
-
-function displayGuessPrice() {
-  guessPrice.style.display = "flex";
-  closeSection();
-}
-
-function closeSection() {
-  if (closeBtn.style.display == "block") {
-    closeBtn.style.display = "none";
-    autoSearchContainer.style.display = "none";
-    historyContainer.style.display = "none";
-    videoPoints.style.display = "none";
-    guessPrice.style.display = "none";
-  } else {
-    closeBtn.style.display = "block";
-  }
 }
 
 //handling the submit of auto-search form
@@ -82,27 +27,48 @@ function displayProcessingTabs() {
 function hideProcessingTabs() {
   autoSearchForm.style.display = "flex";
   processingTabs.style.display = "none";
+  displayCloseTabsBtn();
 }
+
+async function getWord() {
+  // Making Https request (Documentation for API: https://random-word-api.herokuapp.com/home)
+  try {
+    const result = await fetch(`https://random-word-api.herokuapp.com/word`);
+    const data = await result.json();
+    // console.log(data); // Log the response to console
+    let word = data[0];
+    word = word[0].toUpperCase() + word.slice(1);
+
+    history.push(word);
+    return word;
+  } catch (err) {
+    console.log("not found", err);
+  }
+}
+getWord();
 
 // Auto Search Section Code
 let tabsCount = 0;
 let setTabMaker;
-let searchInterval = document.getElementById("search-interval").value;
+
+function getSearchInterval() {
+  return document.getElementById("search-interval").value;
+}
 
 function autoSearch() {
-  searchInterval = document.getElementById("search-interval").value;
+  let searchInterval = getSearchInterval();
   displayProcessingTabs();
   setTabMaker = setInterval(createTabs, searchInterval * 1000);
-  // createTabs(); // So the the funtion is executed immediately, instead of waiting for setInterval
 }
 
 let createdTabsList = [];
 
-function search() {
-  url = `https://www.bing.com/search?q=${history[history.length - 1]}`;
+async function search() {
+  word = await getWord();
+  url = `https://www.bing.com/search?q=${word}`;
   let tab = window.open(url, "_blank");
   createdTabsList.push(tab);
-  if (autoCloseTabs.checked && createdTabsList.length > 10) closeTabs(2);
+  if (autoCloseTabs.checked && createdTabsList.length > 5) closeTabs(2);
 }
 
 // These are called so the content in processing-tabs can be updated as the tabs are generated
@@ -111,13 +77,12 @@ const numTabsLeft = document.getElementById("tabs-left");
 const estimatedTimeLeft = document.getElementById("estimated-time-left");
 
 async function createTabs() {
-  search();
-  await getWord();
+  await search();
 
   tabsCount++;
 
   let numOfSearches = document.getElementById("num-of-searches").value;
-  searchInterval = document.getElementById("search-interval").value;
+  let searchInterval = getSearchInterval();
 
   if (numOfSearches > 30) numOfSearches = 30;
   else if (numOfSearches < 2) numOfSearches = 2;
@@ -142,7 +107,7 @@ function stopAutoSearch() {
   numTabsLeft.textContent = "_-_";
   estimatedTimeLeft.textContent = "_-_";
 
-  if (autoCloseTabs.checked) setTimeout(() => closeTabs(createTabs.length), 20000);
+  if (autoCloseTabs.checked) setTimeout(closeTabs, 5000);
 }
 
 // Here we calculate the estimated time and the points inside auto-search
@@ -152,7 +117,7 @@ const estimatedTime = document.getElementById("estimated-time");
 
 function calculatePoints() {
   let tabs = document.getElementById("num-of-searches").value;
-  searchInterval = document.getElementById("search-interval").value;
+  let searchInterval = getSearchInterval();
 
   if (tabs > 30) tabs = 30;
   else if (tabs < 2) tabs = 2;
@@ -164,8 +129,19 @@ function calculatePoints() {
 calculatePoints();
 
 function closeTabs(num) {
+  if (!num) num = createdTabsList.length;
+
   for (let i = 0; i < num; i++) {
     createdTabsList[0].close();
     createdTabsList.shift();
+  }
+  displayCloseTabsBtn();
+}
+
+function displayCloseTabsBtn() {
+  if (createdTabsList.length != 0) {
+    closeTabsBtn.style.display = "inline";
+  } else {
+    closeTabsBtn.style.display = "none";
   }
 }
