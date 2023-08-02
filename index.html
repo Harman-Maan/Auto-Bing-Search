@@ -21,7 +21,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Bing Auto-Search</title>
+    <title>Auto Bing Search</title>
   </head>
   <body>
     <!-- Navbar -->
@@ -56,10 +56,8 @@
           <fieldset>
             <legend>Number of Searches:</legend>
             <br />
-            <label for="num-of-searches">
-              <input id="num-of-searches" type="number" max="30" min="2" value="20" onkeyup="calculatePoints()" onchange="calculatePoints()" /> x 3 =
-              <span id="total-points" class="changing-values"></span> points
-            </label>
+            <input id="num-of-searches" type="number" max="30" min="2" value="20" onkeyup="calculatePoints()" onchange="calculatePoints()" /> x 3 =
+            <span id="total-points" class="changing-values"></span> points
           </fieldset>
         </div>
         <div id="control-inputs">
@@ -82,7 +80,7 @@
         <button type="button" class="btn btn-danger" id="stop-auto-search" onclick="stopAutoSearch()">Stop</button>
       </div>
       <div id="medal-img-holder">
-        <img src="./assets/medal.svg" id="medal" alt="" />
+        <img src="./assets/images/medal.svg" id="medal" alt="" />
       </div>
       <div id="waves">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

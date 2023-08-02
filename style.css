@@ -79,14 +79,21 @@ fieldset,
 legend,
 #fieldset-inputs input,
 select,
-label {
-  font-size: 1.3rem;
+label,
+#auto-search-btn,
+#close-tabs-btn {
   font-family: sans-serif;
+}
+
+fieldset,
+legend,
+#fieldset-inputs input,
+select {
+  font-size: 1.2rem;
 }
 #auto-search-btn,
 #close-tabs-btn {
   font-size: 1rem;
-  font-family: sans-serif;
 }
 
 #auto-search-form {
@@ -117,7 +124,7 @@ fieldset {
 }
 
 #auto-search #num-of-searches {
-  width: 50px;
+  width: 55px;
 }
 
 #auto-search input,
@@ -209,13 +216,19 @@ fieldset {
     font-size: 0.8rem;
   }
   fieldset,
+  legend {
+    font-size: 1.1rem;
+  }
+  #auto-search-btn,
+  #close-tabs-btn {
+    font-size: 1rem;
+  }
+  fieldset,
   .form-check-label {
     padding: 0.5rem 0.5rem;
-    font-size: 1.1rem;
   }
   legend {
     padding: 0.2rem;
-    font-size: 1.1rem;
   }
 }
 
@@ -237,7 +250,9 @@ fieldset {
   #auto-search {
     padding-top: 2rem;
   }
+  #auto-search-btn,
+  #close-tabs-btn,
   .btn {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 }
