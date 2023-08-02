@@ -205,6 +205,8 @@ fieldset {
     width: 1000px;
     right: 0;
   }
+  #auto-search-btn,
+  #close-tabs-btn,
   .btn {
     font-size: 0.8rem;
   }
@@ -218,10 +220,6 @@ fieldset {
   fieldset,
   legend {
     font-size: 1.1rem;
-  }
-  #auto-search-btn,
-  #close-tabs-btn {
-    font-size: 1rem;
   }
   fieldset,
   .form-check-label {
